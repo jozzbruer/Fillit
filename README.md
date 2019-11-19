@@ -11,14 +11,20 @@ Vous devrez donc bien réflechir à vos structures de données et à votre algor
 résolution pour que votre programme réponde avant l’an 3000.
 
 
-• Votre projet doit être en C et à la Norme.
+• Votre projet doit être en C et à la Norme. 
+
 • Les fonctions autorisées sont : exit, open, close, write, read, malloc et free.
+
 • Votre Makefile devra compiler votre rendu et proposer au moins les règles suivantes : all, clean, fclean et re.
+
 • Vous devez compiler votre exécutable avec les flags Wall, Wextra et Werror. Tout
 autre flag, et en particulier d’optimisation, est interdit.
+
 • L’exécutable doit s’appeller fillit et se trouver dans le répertoire racine de votre
 dépot.
+
 • Vous devez rendre, à la racine de votre dépôt de rendu, un fichier auteur contenant
 votre login suivi d’un ’\n’ :
+
 
 • Votre projet ne doit pas avoir de fuites de mémoire.
