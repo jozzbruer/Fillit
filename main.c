@@ -18,7 +18,8 @@ void		fillit(t_tetrimino *head)
 	char	**map;
 	int		size;
 
-	size = ft_size(alpha);
+	//size = ft_size(alpha);
+	size = 2;
 	map = ft_map(size);
 	while (solve_it(map, head) == 0)
 	{

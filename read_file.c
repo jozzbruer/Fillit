@@ -21,7 +21,7 @@ int		put_usage(void)
 	exit(0);
 }
 
-char		*valid_tetrimino(char *buf, char alpha)
+char		*valid_tetrimino(char *buf)
 {
 	int		i;
 	int		adj_blk;
@@ -30,17 +30,17 @@ char		*valid_tetrimino(char *buf, char alpha)
 	i = 0;
 	while (i < 20)
 	{
-		if (buf[i] == alpha)
+		if (buf[i] == '#')
 		{
-			if (buf[i + 5] == alpha && (i + 5) < 20)
+			if (buf[i + 5] == '#' && (i + 5) < 20)
 				adj_blk += 1;
-			if (buf[i + 1] == alpha && (i + 1) < 20)
+			if (buf[i + 1] == '#' && (i + 1) < 20)
 				adj_blk += 1;
-			if (buf[i - 5] == alpha && (i - 5) >= 0)
+			if (buf[i - 5] == '#' && (i - 5) >= 0)
 				adj_blk += 1;
-			if (buf[i - 1] == alpha && (i - 1) >= 0)
+			if (buf[i - 1] == '#' && (i - 1) >= 0)
 				adj_blk += 1;
-			((adj_blk == 6) || (adj_blk == 8)) ? (buf[i] = alpha) : 0;
+			//((adj_blk == 6) || (adj_blk == 8)) ? (buf[i] = '#') : 0;
 		}
 		i++;
 	}
@@ -49,7 +49,7 @@ char		*valid_tetrimino(char *buf, char alpha)
 	return (0);
 }
 
-char		*valid_file(char *buf, char alpha)
+char		*valid_file(char *buf)
 {
 	int		i;
 	int		nt;
@@ -60,7 +60,7 @@ char		*valid_file(char *buf, char alpha)
 	{
 		if (i % 5 <= 4)
 		{
-			if ((buf[i] != '.') && (buf[i] != '#'))
+			if ((buf[i] != '.') || (buf[i] != '#'))
 			{
 				if (i % 5 == 4 && buf[i] != '\n')
 					return (0);
@@ -68,8 +68,8 @@ char		*valid_file(char *buf, char alpha)
 			if (buf[i] == '#')
 			{
 				nt++;
-				buf[i] = alpha;
-			}
+				//buf[i] = '#';
+			}		
 		}
 	}
 	if (nt != 4)
@@ -115,8 +115,8 @@ int				read_file(t_tetrimino *head, char *source)
 		while ((rd = (read(fd, buf, BUFF_SIZE))) >= 19)
 		{
 			buf[rd] = '\0';
-			if (!(((valid_file(buf, alpha)))) && (!(valid_tetrimino(buf, alpha))))
-				return (0);
+			if (!(((valid_file(buf)))) || (!(valid_tetrimino(buf))))
+				put_usage();
 			alpha != 'A' ? (head->next = ((t_tetrimino *)malloc(sizeof(t_tetrimino) * 1))) : 0;
 			alpha != 'A' ? (head = head->next) : 0;
 			ft_addlst(head, buf, alpha);

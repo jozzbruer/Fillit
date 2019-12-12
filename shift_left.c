@@ -43,7 +43,7 @@ int		shift_left(char **lspot)
 
 int		shift_upper(char **lspot)
 {
-	if (!ft_strchr(lspot[0], alpha))
+	if (!ft_strchr(lspot[0], '#'))
 	{
 		free(lspot[0]);
 		lspot[0] = lspot[1];
@@ -86,7 +86,7 @@ int		shift_right(char **lspot)
 
 int		shift_lower(char **lspot)
 {
-	if (!ft_strchr(lspot[3], alpha))
+	if (!ft_strchr(lspot[3], '#'))
 	{
 		free(lspot[3]);
 		lspot[3] = lspot[2];

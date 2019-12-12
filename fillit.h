@@ -31,10 +31,10 @@ typedef struct			s_tetrimino
 
 char				alpha;
 int					read_file(t_tetrimino *head, char *source);
-char				*valid_file(char *buf, char alpha);
+char				*valid_file(char *buf);
 char				**add_str(int size);
 void				ft_kill_map(char **map, int len);
-char				*valid_tetrimino(char *buf, char alpha);
+char				*valid_tetrimino(char *buf);
 int					put_usage(void);
 char				**ft_map(int length);
 int					ft_size(char alpha);

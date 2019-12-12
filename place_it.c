@@ -81,9 +81,7 @@ char		**place_it(char **map, t_tetrimino *head, int i, int j)
 		while (head->line[x][y])
 		{
 			if (head->line[x][y] != '.' && map[i + x][j + y] == '.')
-			{
 				map[i + x][j + y] = head->alphabet;
-			}
 			y++;
 		}
 		x++;
