@@ -6,7 +6,7 @@
 /*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:53:43 by lde-la-g          #+#    #+#             */
-/*   Updated: 2019/12/11 17:16:14 by jquince          ###   ########.fr       */
+/*   Updated: 2019/12/12 13:52:51 by jquince          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void		fillit(t_tetrimino *head)
 	char	**map;
 	int		size;
 
-	//size = ft_size(alpha);
 	size = 2;
 	map = ft_map(size);
 	while (solve_it(map, head) == 0)

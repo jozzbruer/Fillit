@@ -6,7 +6,7 @@
 #    By: jquince <jquince@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/09 17:12:52 by jquince           #+#    #+#              #
-#    Updated: 2019/12/11 18:51:05 by lde-la-g         ###   ########.fr        #
+#    Updated: 2019/12/12 14:28:30 by jquince          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = fillit
 SRCS = *.c
 OBJS = *.o
 HEADER = fillit.h
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -g 
 
 LIBFT = libft/
 

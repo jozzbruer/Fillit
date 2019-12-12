@@ -6,14 +6,12 @@
 /*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 20:06:27 by lde-la-g          #+#    #+#             */
-/*   Updated: 2019/12/11 17:47:49 by jquince          ###   ########.fr       */
+/*   Updated: 2019/12/12 14:52:06 by jquince          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-
-#define MAX(x, y) (x) < (y) ? (y) : (x)
 
 int		put_usage(void)
 {
@@ -40,7 +38,6 @@ char		*valid_tetrimino(char *buf)
 				adj_blk += 1;
 			if (buf[i - 1] == '#' && (i - 1) >= 0)
 				adj_blk += 1;
-			//((adj_blk == 6) || (adj_blk == 8)) ? (buf[i] = '#') : 0;
 		}
 		i++;
 	}
@@ -66,10 +63,7 @@ char		*valid_file(char *buf)
 					return (0);
 			}
 			if (buf[i] == '#')
-			{
-				nt++;
-				//buf[i] = '#';
-			}		
+				nt++;	
 		}
 	}
 	if (nt != 4)

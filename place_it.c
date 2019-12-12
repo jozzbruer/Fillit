@@ -6,7 +6,7 @@
 /*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:14:15 by lde-la-g          #+#    #+#             */
-/*   Updated: 2019/12/11 17:28:40 by jquince          ###   ########.fr       */
+/*   Updated: 2019/12/12 14:35:44 by jquince          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,12 @@ int			solve_it(char **map, t_tetrimino *head)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '.')
+			if (placeable(map, head, i, j) == 1)
 			{
-				if (placeable(map, head, i, j) == 1)
-				{
-					map = place_it(map, head, i, j);
-					if (solve_it(map, head->next))
-						return (1);
-					map = remove_it(map, head, i, j);
-				}
+				map = place_it(map, head, i, j);
+				if (solve_it(map, head->next))
+					return (1);
+				map = remove_it(map, head, i, j);
 			}
 			j++;
 		}
