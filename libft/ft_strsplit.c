@@ -3,40 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 21:57:12 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/14 14:02:21 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/11 17:09:39 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 18:55:46 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char						**ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
-	char					**foo;
-	int						i;
-	int						j;
-	int						k;
-	int						wn;
+	char	**splt;
+	int		w;
+	int		i;
+	int		wz;
+	int		postr;
 
-	i = 0;
-	k = 0;
-	if (!s || !(foo = (char **)malloc(sizeof(char *) * (ft_wn(s, c) + 1))))
+	if (!s)
 		return (NULL);
-	wn = ft_wn(s, c);
-	while (i < wn)
+	w = ft_countw(s, c);
+	if (!(splt = (char **)malloc(sizeof(char *) * (w + 1))))
+		return (NULL);
+	i = 0;
+	while (i < w)
 	{
-		j = 0;
-		if (!(foo[i] = (char *)malloc(sizeof(char) * (ft_len(&s[k], c) + 1))))
-			return (NULL);
-		while (s[k] == c)
-			k++;
-		while (s[k] && s[k] != c)
-			foo[i][j++] = s[k++];
-		foo[i][j++] = '\0';
+		wz = ft_word(s, c, i);
+		postr = ft_wordpos(s, c, i);
+		splt[i] = ft_strsub(s, postr, wz);
 		i++;
 	}
-	foo[i] = 0;
-	return (foo);
+	splt[i] = NULL;
+	return (splt);
 }

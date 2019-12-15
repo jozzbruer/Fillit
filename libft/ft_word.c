@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_positive.c                                      :+:      :+:    :+:   */
+/*   ft_word.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 00:30:08 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/14 00:44:36 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/14 17:24:46 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:47:40 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_positive(int nbr)
+int	ft_word(char const *s, char c, int w)
 {
-	int		i;
-	int		n;
-	char	*str;
+	int	len;
+	int	i;
+	int	cnt;
 
+	len = 0;
 	i = 0;
-	n = nbr;
-	while (n > 0)
+	cnt = 0;
+	while (s[i])
 	{
-		n = n / 10;
+		if (s[i] != c)
+		{
+			while (s[i] && s[i] != c)
+			{
+				if (w == cnt)
+					len++;
+				i++;
+			}
+			cnt++;
+		}
 		i++;
 	}
-	if (!(str = malloc(sizeof(char) * (i + 1))))
-		return (NULL);
-	str[i] = '\0';
-	while (i > 0)
-	{
-		str[i - 1] = (nbr % 10) + '0';
-		nbr = nbr / 10;
-		i--;
-	}
-	return (str);
+	return (len);
 }

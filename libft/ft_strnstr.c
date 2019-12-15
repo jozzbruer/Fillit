@@ -3,32 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 14:50:29 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/10 20:37:53 by jquince          ###   ########.fr       */
+/*   Created: 2019/09/30 12:56:01 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:04:45 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strnstr(const char *h, const char *n, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t		i;
-	size_t		j;
+	char	*h;
+	char	*n;
+	size_t	i;
+	int		o;
 
+	h = (char *)haystack;
+	n = (char *)needle;
 	i = 0;
-	if (!*n)
-		return ((char*)h);
-	while (h[i] != '\0' && i + len)
+	if (n[0] == '\0')
+		return ((char *)(haystack));
+	while (h[i] != '\0' && i < len)
 	{
-		j = 0;
-		while (n[j] == h[i + j] && i + j < len)
+		o = 0;
+		if (h[i] == n[o] && n[o] != '\0')
 		{
-			if (n[j++ + 1] == '\0')
-				return ((char*)h + i);
+			while (h[i + o] == n[o] && (i + o) < len && n[o] && h[i + o])
+			{
+				o++;
+				if (n[o] == '\0')
+					return (&h[i]);
+			}
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

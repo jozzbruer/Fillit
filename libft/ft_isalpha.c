@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 19:34:44 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/11 15:55:25 by jquince          ###   ########.fr       */
+/*   Created: 2019/09/19 18:43:25 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/13 15:48:02 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
 
-int		ft_isalpha(int str)
+int	ft_isalpha(int c)
 {
-	if ((str >= 'A' && str <= 'Z') || (str >= 'a' && str <= 'z'))
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	{
 		return (1);
+	}
 	else
 		return (0);
 }

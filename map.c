@@ -6,26 +6,11 @@
 /*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:17:21 by jquince           #+#    #+#             */
-/*   Updated: 2019/12/11 17:23:00 by jquince          ###   ########.fr       */
+/*   Updated: 2019/12/12 21:16:30 by jquince          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-int			ft_size(char alpha)
-{
-	int		size;
-	int		amount;
-	char	a;
-
-	(alpha == 'A') ? (a = 'A') : (a = (alpha - 1));
-	a = a - 64;
-	amount = a * 4;
-	size = 2;
-	while (amount > (size * size))
-		size++;
-	return (size);
-}
 
 char		**add_str(int size)
 {

@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nlen.c                                          :+:      :+:    :+:   */
+/*   ft_itoapos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 00:37:23 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/13 01:45:48 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/12 18:16:00 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:53:11 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nlen(int n)
+char	*ft_itoapos(int n)
 {
-	int i;
+	int		dig;
+	int		ncpy;
+	char	*sn;
 
-	i = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		++i;
-	else
-		return (0);
-	while (n != 0)
+	dig = 0;
+	ncpy = n;
+	while (ncpy > 0)
 	{
-		++i;
-		n = n / 10;
+		ncpy = ncpy / 10;
+		dig++;
 	}
-	return (i);
+	if (!(sn = malloc(sizeof(char) * (dig + 1))))
+		return (NULL);
+	sn[dig] = '\0';
+	while (dig > 0)
+	{
+		sn[dig - 1] = (n % 10) + '0';
+		n = n / 10;
+		dig--;
+	}
+	return (sn);
 }

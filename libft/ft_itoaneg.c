@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_negative.c                                      :+:      :+:    :+:   */
+/*   ft_itoaneg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 00:36:53 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/14 00:39:26 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/12 18:09:12 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:53:01 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_negative(int nbr)
+char	*ft_itoaneg(int n)
 {
-	char	*foo;
 	int		i;
-	char	*bar;
-	int		digits;
+	char	*con;
+	char	*sn;
+	int		dig;
 
-	digits = 1;
 	i = 0;
-	if (!(bar = ft_positive(nbr * -1)))
+	dig = 1;
+	if (!(sn = ft_itoapos(n * -1)))
 		return (NULL);
-	while (bar[i])
+	while (sn[i])
 	{
-		digits++;
+		dig++;
 		i++;
 	}
-	if (!(foo = malloc(sizeof(char) * (digits + 1))))
+	if (!(con = malloc(sizeof(char) * (dig + 1))))
 		return (NULL);
-	foo[digits] = '\0';
-	foo[0] = '-';
+	con[dig] = '\0';
+	con[0] = '-';
 	i = 0;
-	while (bar[i])
+	while (sn[i])
 	{
-		foo[i + 1] = bar[i];
+		con[i + 1] = sn[i];
 		i++;
 	}
-	return (foo);
+	return (con);
 }

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 22:13:05 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/14 00:36:30 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/12 18:03:31 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:52:49 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n > 0)
-		return (ft_positive(n));
+		return (ft_itoapos(n));
 	else
-		return (ft_negative(n));
+		return (ft_itoaneg(n));
 }

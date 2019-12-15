@@ -6,13 +6,13 @@
 /*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:14:15 by lde-la-g          #+#    #+#             */
-/*   Updated: 2019/12/12 14:35:44 by jquince          ###   ########.fr       */
+/*   Updated: 2019/12/12 23:49:51 by jquince          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			solve_it(char **map, t_tetrimino *head)
+int			solve_it(char **map, t_tet *head)
 {
 	int		i;
 	int		j;
@@ -28,7 +28,7 @@ int			solve_it(char **map, t_tetrimino *head)
 			if (placeable(map, head, i, j) == 1)
 			{
 				map = place_it(map, head, i, j);
-				if (solve_it(map, head->next))
+				if (solve_it(map, head->nex))
 					return (1);
 				map = remove_it(map, head, i, j);
 			}
@@ -39,7 +39,7 @@ int			solve_it(char **map, t_tetrimino *head)
 	return (0);
 }
 
-int			placeable(char **map, t_tetrimino *head, int i, int j)
+int			placeable(char **map, t_tet *head, int i, int j)
 {
 	int		x;
 	int		y;
@@ -64,7 +64,7 @@ int			placeable(char **map, t_tetrimino *head, int i, int j)
 	return (1);
 }
 
-char		**place_it(char **map, t_tetrimino *head, int i, int j)
+char		**place_it(char **map, t_tet *head, int i, int j)
 {
 	int		x;
 	int		y;
@@ -86,7 +86,7 @@ char		**place_it(char **map, t_tetrimino *head, int i, int j)
 	return (map);
 }
 
-char		**remove_it(char **map, t_tetrimino *head, int i, int j)
+char		**remove_it(char **map, t_tet *head, int i, int j)
 {
 	int		x;
 	int		y;

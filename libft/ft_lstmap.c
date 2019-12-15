@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 21:38:12 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/09 16:39:01 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/16 19:42:34 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/16 22:07:16 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list		*foo;
+	t_list *list;
 
 	if (lst)
 	{
-		foo = f(lst);
-		foo->next = ft_lstmap(lst->next, f);
-		return (foo);
+		list = (*f)(lst);
+		list->next = ft_lstmap(lst->next, f);
+		return (list);
 	}
 	return (NULL);
 }

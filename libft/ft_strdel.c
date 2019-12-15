@@ -3,19 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 14:06:22 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/14 02:18:45 by jquince          ###   ########.fr       */
+/*   Created: 2019/10/07 22:37:18 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/13 23:41:41 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_strdel(char **as)
+void	ft_strdel(char **as)
 {
-	if (as == NULL)
-		return ;
-	free(*as);
-	*as = NULL;
+	char **a;
+
+	a = as;
+	if (a)
+	{
+		free(*a);
+		*a = NULL;
+	}
 }

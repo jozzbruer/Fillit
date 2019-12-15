@@ -3,19 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 13:50:29 by jquince           #+#    #+#             */
-/*   Updated: 2019/10/11 15:30:32 by jquince          ###   ########.fr       */
+/*   Created: 2019/09/19 12:42:01 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:14:50 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-int		ft_isalnum(int str)
+int	ft_isalnum(int c)
 {
-	if (ft_isdigit(str) || ft_isalpha(str))
+	while (c >= 48 && c <= 57)
+	{
 		return (1);
-	else
-		return (0);
+	}
+	while (c >= 65 && c <= 90)
+	{
+		return (1);
+	}
+	while (c >= 97 && c <= 122)
+		return (1);
+	return (0);
 }

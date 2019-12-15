@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_countw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 18:30:55 by lde-la-g          #+#    #+#             */
-/*   Updated: 2019/10/14 16:54:02 by lde-la-g         ###   ########.fr       */
+/*   Created: 2019/10/14 17:18:18 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:52:23 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_countw(char const *s, char c)
 {
-	int	i;
+	size_t	len;
+	size_t	singlec;
 
-	i = 0;
-	while (s[i] != '\0')
+	singlec = 0;
+	len = 0;
+	if (s)
 	{
-		i++;
+		while (len < ft_strlen(s))
+		{
+			if (len == 0 && s[len] != c)
+				singlec++;
+			if (s[len] == c && s[len + 1] != c && s[len + 1] != '\0')
+				singlec++;
+			len++;
+		}
+		return (singlec);
 	}
-	if (c == 0)
-		return (char *)s + i;
-	while (i > 0)
-	{
-		--i;
-		if (s[i] == c)
-			return ((char *)s + i);
-	}
-	return (NULL);
+	return (0);
 }

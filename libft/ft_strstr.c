@@ -3,34 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquince <jquince@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lde-la-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 15:01:23 by jquince           #+#    #+#             */
-/*   Updated: 2019/09/21 12:52:53 by jquince          ###   ########.fr       */
+/*   Created: 2019/09/26 20:28:11 by lde-la-g          #+#    #+#             */
+/*   Updated: 2019/10/14 17:01:18 by lde-la-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char		*ft_strstr(char *str, char *to_find)
+#include "libft.h"
+
+char	*ft_strstr(char *haystack, char *needle)
 {
 	int i;
-	int j;
+	int o;
 
-	if (to_find[0] == '\0')
-		return (str);
-	i = 0;
-	while (str[i])
+	o = 0;
+	if (needle[0] == '\0')
 	{
-		if (str[i] == to_find[0])
-		{
-			j = 0;
-			while (str[i + j] && to_find[j] && str[i + j] == to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return (str + i);
-			if (to_find[j] != '\0')
-				i++;
-		}
-		i++;
+		return (haystack);
 	}
-	return (0);
+	while (haystack[o] != '\0')
+	{
+		i = 0;
+		if (haystack[o] == needle[i])
+		{
+			while (haystack[o + i] == needle[i] && needle[i] != '\0')
+			{
+				if (haystack[o + i] != needle[i])
+					break ;
+				i++;
+			}
+			if (needle[i] == '\0')
+				return (&haystack[o]);
+		}
+		o++;
+	}
+	return (NULL);
 }
